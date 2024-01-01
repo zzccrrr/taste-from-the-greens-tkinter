@@ -230,8 +230,6 @@ class InventoryManagement(ctk.CTkFrame):
         self.text.configure(state="disabled")
 
 
-def main():
-    InventoryManagement().mainloop()
+app = InventoryManagement()
+app.mainloop()
 
-
-main()
