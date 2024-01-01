@@ -10,17 +10,23 @@ class InventoryManagement(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         self.master = master
-        self.title('Inventory Management')
+        self.master.title('Inventory Management')
         self.grid()
         self.items = []
         root.geometry("650x450")
+
+        self.label = ctk.CTkLabel(self)
+        self.label.grid()
 
         self.itemCount = len(self.items)
 
         # Lines 23 - 36 are top of application, search feature labels/entry/buttons
 
-        ctk.Label(self, text='Search (Item Number): ').grid(row=0,
-                                                            column=1, padx=6, pady=20, sticky=ctk.E)
+        self.label(self, text='Search (Item Number): ').grid(row=0,
+                                                             column=1,
+                                                             padx=6,
+                                                             pady=20,
+                                                             sticky=ctk.E)
 
         self._box1 = ctk.CTkIntVar()
         self._input = ctk.CTkEntry(self, width=20, textvariable=self._box1)
@@ -230,6 +236,5 @@ class InventoryManagement(ctk.CTkFrame):
         self.text.configure(state="disabled")
 
 
-app = InventoryManagement()
+app = InventoryManagement(master=root)
 app.mainloop()
-
